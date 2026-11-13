@@ -24,7 +24,7 @@ def consensus_node(state: AgentState) -> dict:
         ))
     ])
     
-    chain = prompt | llm_pro
+    chain = prompt | llm
     result = chain.invoke({
         "raw_symptoms": state.get("raw_symptoms", ""),
         "patient_history": state.get("patient_history", []),
