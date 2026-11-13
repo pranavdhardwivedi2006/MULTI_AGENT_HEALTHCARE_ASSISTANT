@@ -1,8 +1,9 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.graph.state import AgentState, SymptomExtraction
+from src.config import get_model
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+llm = get_model(temperature=0)
 
 def symptom_analyzer_node(state: AgentState) -> dict:
     analyzer_llm = llm.with_structured_output(SymptomExtraction)

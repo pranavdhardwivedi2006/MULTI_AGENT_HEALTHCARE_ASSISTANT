@@ -1,8 +1,9 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.graph.state import AgentState, PlannerRouting
+from src.config import get_model
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+llm = get_model(temperature=0)
 
 def planner_node(state: AgentState) -> dict:
     planner_llm = llm.with_structured_output(PlannerRouting)

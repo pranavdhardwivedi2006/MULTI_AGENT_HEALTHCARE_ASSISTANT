@@ -1,8 +1,9 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.graph.state import AgentState, SpecialistAssessment
+from src.config import get_model
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+llm = get_model(temperature=0)
 
 dermatology_prompt = ChatPromptTemplate.from_messages([
     ("system", (
