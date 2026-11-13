@@ -56,3 +56,13 @@ class AgentState(TypedDict):
     consensus_draft: Optional[str]
     safety_verdict: Optional[Dict[str, Any]]
     final_response: Optional[str]
+
+class SafetyVerdict(BaseModel):
+    status: str
+    urgency_level: str
+    red_flags_identified: List[str]
+    recommended_action: str
+    disclaimer: str
+    confidence_score: str = Field(
+        description="Overall system confidence score (e.g., 'High (85%)', 'Low (30%)') based on specialist agreement, available patient data, and uncertainty factors."
+    )
