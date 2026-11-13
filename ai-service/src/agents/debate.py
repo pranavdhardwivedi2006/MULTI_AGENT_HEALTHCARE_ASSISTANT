@@ -7,7 +7,7 @@ llm = get_model(temperature=0.1)
 
 def debate_node(state: AgentState) -> dict:
     """Compares specialist outputs and identifies agreements, disagreements, and uncertainty."""
-    debate_llm = llm_pro.with_structured_output(DebateDeliberation)
+    debate_llm = llm.with_structured_output(DebateDeliberation)
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", (
